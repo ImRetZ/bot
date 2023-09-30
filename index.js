@@ -4,7 +4,7 @@ const {
   Collection,
   MessageEmbed
 } = require('discord.js');
-const token = process.env['TOKEN'];
+const token = 'TOKEN BOT';
 const config = require('./config.js');
 const {
   owner
