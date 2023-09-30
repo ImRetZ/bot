@@ -1,0 +1,28 @@
+const {
+  MessageEmbed
+} = require('discord.js');
+const data = require('@replit/database')
+const db = new data()
+
+module.exports = {
+  name: 'leaderboard',
+  aliases: ['lb'],
+  description: 'Leaderboard etecash',
+  run: async(client, msg, args) => {
+    const user = await db.list()
+    const duit = await db.list()
+    let us = ``;
+    client.users.cache.forEach(u => {
+      if(user.includes(u.id)){
+        us = us.concat(`${user ? `- **${u.tag} ${user}**\n` : `None`}`);
+      }
+    });
+    const userb = new MessageEmbed()
+      .setTitle(`**LEADERBOARD**`)
+      .setDescription(us)
+      .setFooter(`〢${msg.author.tag}`, msg.author.displayAvatarURL({ dynamic: true }))
+      .setTimestamp()
+      .setColor(`#00C5FF`)
+    msg.reply({ embeds: [userb]})
+  }
+}
