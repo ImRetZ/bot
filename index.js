@@ -4,7 +4,7 @@ const {
   Collection,
   MessageEmbed
 } = require('discord.js');
-// const token = process.env['TOKEN'];
+const token = process.env['TOKEN'];
 const config = require('./config.js');
 const {
   owner
@@ -243,4 +243,4 @@ client.on('messageCreate', async(msg) => {
   if (command) command.run(client, msg, args);
 });
 //------------------------------
-client.login('MTE1NTUzNDkyNTc5ODMyMjMwOQ.Gfe4DB.KNs8XMIdLN0fDXTdtYc9ODUERdY-9jWyOKiaiw')
+client.login(token)
